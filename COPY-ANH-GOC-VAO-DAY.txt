@@ -1,0 +1,1 @@
+Copy the complete images folder from the instructor's original Homework 1 source here. Keep all original filenames and this folder name as lowercase 'images'.

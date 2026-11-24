@@ -1,0 +1,230 @@
+/* Homework 2 - shared stylesheet for all three pages */
+
+/* Base page styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #24352b;
+  background: #f3f7f1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Header and navigation */
+header {
+  padding: 1.25rem 5%;
+  background: #183d2b;
+  color: #ffffff;
+}
+
+nav {
+  display: inline-block;
+  width: 80%;
+  min-width: 280px;
+  vertical-align: middle;
+}
+
+/* Descendant selector: only the image inside nav is sized here. */
+nav img {
+  display: inline-block;
+  width: 10%;
+  min-width: 52px;
+  max-width: 88px;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 3px solid #d9ead5;
+}
+
+nav ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0 1rem;
+  padding: 0;
+  vertical-align: middle;
+}
+
+/*
+  Homework 2, step 3:
+  The previous homework's li display/width styling is intentionally commented out.
+  li {
+    display: inline-block;
+    width: 150px;
+  }
+*/
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 0.4rem;
+}
+
+nav a:hover,
+nav a:focus,
+nav a[aria-current="page"] {
+  color: #183d2b;
+  background: #d9ead5;
+}
+
+h1 {
+  margin: 1rem 0 0;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+/* Accessible skip link: it becomes visible when keyboard-focused. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background: #183d2b;
+  border: 3px solid #f0c96a;
+  border-radius: 0.35rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Main content */
+main {
+  width: min(1100px, 90%);
+  min-height: 55vh;
+  margin: 2rem auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: #ffffff;
+  border-radius: 0.8rem;
+  box-shadow: 0 5px 22px rgba(24, 61, 43, 0.09);
+}
+
+p {
+  margin-top: 0;
+}
+
+main a {
+  color: #145c37;
+  font-weight: 700;
+}
+
+main a:hover,
+main a:focus {
+  color: #783d16;
+  text-decoration-thickness: 2px;
+}
+
+/* Step 6 and 8: two-column CSS Grid gallery. */
+.grid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  justify-content: space-evenly;
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+/* Step 7: only images inside .grid become 100% of their grid column. */
+.grid img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0.65rem;
+  box-shadow: 0 3px 12px rgba(24, 61, 43, 0.15);
+}
+
+/* Step 9: flexible gallery for park photographs. */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.flex img {
+  flex: 1 1 260px;
+  width: min(100%, 320px);
+  max-width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0.65rem;
+  box-shadow: 0 3px 12px rgba(24, 61, 43, 0.15);
+}
+
+footer {
+  padding: 1.5rem 5%;
+  color: #ffffff;
+  background: #183d2b;
+  text-align: center;
+}
+
+footer p {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+footer a {
+  color: #f5dda0;
+}
+
+/* Responsive layout for narrow screens */
+@media (max-width: 700px) {
+  header {
+    padding: 1rem 4%;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav img {
+    width: 15%;
+  }
+
+  nav ul {
+    gap: 0.15rem;
+    margin-left: 0.35rem;
+  }
+
+  nav a {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .grid img {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .flex img {
+    flex-basis: 100%;
+    height: auto;
+    max-height: 320px;
+  }
+}
